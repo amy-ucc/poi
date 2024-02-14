@@ -1,0 +1,1103 @@
+package com.u3.frontend;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+
+/**
+ * This class represents the main user interface through which the user
+ * will be able to access all the functions provided by the application
+ * @author Sadiyah Sajjad
+ */
+//import javax.swing.ImageIcon;
+//import javax.swing.*;
+import java.awt.Dimension;
+import java.awt.DisplayMode;
+import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
+import java.awt.Image; 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import com.u3.model.Building;
+import com.u3.model.FloorMap;
+import com.u3.model.Model;
+import com.u3.model.Poi;
+import com.u3.model.Position;
+import com.u3.model.User;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+
+
+
+
+public class User_Interface extends javax.swing.JFrame {
+
+    // ImageIcon ground_floor = new ImageIcon("User_Interface.png");
+    /**
+     * Creates new form MC_groundFloor
+     */
+    /*
+     * JFrame frame;
+     * JLabel displayField;
+     * ImageIcon image;
+     */
+    // JFrame frame;
+    
+    boolean newPoi = false;
+
+    Model model;
+
+    public User_Interface() {
+        initComponents();
+
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        Building_ComboBox.setSelectedItem(null);
+        /*
+         * Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         * 
+         * // Set the size of the frame to the screen size
+         * setSize(screenSize.width, screenSize.height);
+         * 
+         * // Set other frame properties
+         * //setTitle("My App");
+         * setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         * setVisible(true);
+         */
+
+        Entry_Points_CheckBox.setSelected(false);
+        Exit_Points_CheckBox.setSelected(false);
+        Stairwells_CheckBox.setSelected(false);
+        Elevators_CheckBox.setSelected(false);
+        UCPOI_CheckBox.setSelected(false);
+        Classrooms_CheckBox.setSelected(false);
+        Labs_CheckBox.setSelected(false);
+        CSpaces_CheckBox.setSelected(false);
+        FavPOI_CheckBox.setSelected(false);
+        Restaurants_CheckBox.setSelected(false);
+
+    }
+
+    public User_Interface(Model model) {
+
+        String title = "Points of Interest - User: " + model.getCurrUser().getUserid();
+        setTitle(title);
+        
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(User_Interface.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(User_Interface.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(User_Interface.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(User_Interface.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
+        }
+
+        this.model = model;
+
+        initComponents();
+
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        Building_ComboBox.setSelectedItem(null);
+
+        Entry_Points_CheckBox.setSelected(false);
+        Exit_Points_CheckBox.setSelected(false);
+        Stairwells_CheckBox.setSelected(false);
+        Elevators_CheckBox.setSelected(false);
+        UCPOI_CheckBox.setSelected(false);
+        Classrooms_CheckBox.setSelected(false);
+        Labs_CheckBox.setSelected(false);
+        CSpaces_CheckBox.setSelected(false);
+        FavPOI_CheckBox.setSelected(false);
+        Restaurants_CheckBox.setSelected(false);
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Img = new javax.swing.JLabel();
+        BuildingSearch_Panel = new javax.swing.JPanel();
+        Building_Label = new javax.swing.JLabel();
+        Floor_ComboBox = new javax.swing.JComboBox<>();
+        Building_ComboBox = new javax.swing.JComboBox<>();
+        Floor_Label = new javax.swing.JLabel();
+        Enter_Button = new javax.swing.JButton();
+        Select_Map_label = new javax.swing.JLabel();
+        SearchPOI_Panel = new javax.swing.JPanel();
+        Search_POI_label = new javax.swing.JLabel();
+        Search_TextField = new javax.swing.JTextField();
+        Find_Button = new javax.swing.JButton();
+        Layer_Panel = new javax.swing.JPanel();
+        Entry_Points_CheckBox = new javax.swing.JCheckBox();
+        Exit_Points_CheckBox = new javax.swing.JCheckBox();
+        Stairwells_CheckBox = new javax.swing.JCheckBox();
+        Elevators_CheckBox = new javax.swing.JCheckBox();
+        Layers_Label = new javax.swing.JLabel();
+        UCPOI_CheckBox = new javax.swing.JCheckBox();
+        Classrooms_CheckBox = new javax.swing.JCheckBox();
+        Labs_CheckBox = new javax.swing.JCheckBox();
+        CSpaces_CheckBox = new javax.swing.JCheckBox();
+        FavPOI_CheckBox = new javax.swing.JCheckBox();
+        Restaurants_CheckBox = new javax.swing.JCheckBox();
+        Layer_Button = new javax.swing.JButton();
+        POI_Discovery_Panel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        POI_List = new javax.swing.JList<>();
+        Select_Category_Label = new javax.swing.JLabel();
+        POI_Discovery_ComboBox = new javax.swing.JComboBox<>();
+        POI_Discovery_Label = new javax.swing.JLabel();
+        Discovery_Button = new javax.swing.JButton();
+        UserCreated_POI_Panel = new javax.swing.JPanel();
+        Create_POI_button = new javax.swing.JButton();
+        Edit_Layer_button = new javax.swing.JButton();
+        UC_POI_Label = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(6000, 2552));
+
+        //Img.setText("Display image here");
+        Img.setMaximumSize(new java.awt.Dimension(2057, 1320));
+        Img.setMinimumSize(new java.awt.Dimension(2057, 1320));
+        Img.setPreferredSize(new java.awt.Dimension(2057, 1320));
+        Img.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ImgMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(Img);
+
+        BuildingSearch_Panel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        Building_Label.setText("Building : ");
+
+        Building_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>((this.model.getBuildingsArray())));
+
+        // Set up of the action handlers
+        Building_ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Building_ComboBoxActionPerformed(evt);
+            }
+        });
+
+        // if the designer gets messed up, delete this
+        Enter_Button.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Event_ButtonActionPerformed(evt); // This method needs to be implement in this User_Interface class
+                }
+            });
+        ////////////////
+
+        Floor_Label.setText("Floor:");
+
+        Enter_Button.setText("ENTER");
+
+        Select_Map_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Select_Map_label.setText("Select Map");
+
+        javax.swing.GroupLayout BuildingSearch_PanelLayout = new javax.swing.GroupLayout(BuildingSearch_Panel);
+        BuildingSearch_Panel.setLayout(BuildingSearch_PanelLayout);
+        BuildingSearch_PanelLayout.setHorizontalGroup(
+                BuildingSearch_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(BuildingSearch_PanelLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(BuildingSearch_PanelLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Select_Map_label, javax.swing.GroupLayout.PREFERRED_SIZE, 103,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(BuildingSearch_PanelLayout.createSequentialGroup()
+                                                .addGroup(BuildingSearch_PanelLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+                                                                false)
+                                                        .addComponent(Floor_Label, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(Building_Label,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE, 76,
+                                                                Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(BuildingSearch_PanelLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+                                                                false)
+                                                        .addComponent(Building_ComboBox, 0,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(Floor_ComboBox, 0,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(Enter_Button,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                Short.MAX_VALUE))))
+                                .addGap(124, 124, 124)));
+        BuildingSearch_PanelLayout.setVerticalGroup(
+                BuildingSearch_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                BuildingSearch_PanelLayout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(Select_Map_label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(BuildingSearch_PanelLayout
+                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(Building_Label)
+                                                .addComponent(Building_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(BuildingSearch_PanelLayout
+                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(Floor_Label)
+                                                .addComponent(Floor_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(Enter_Button)
+                                        .addContainerGap(8, Short.MAX_VALUE)));
+
+        SearchPOI_Panel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        Search_POI_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Search_POI_label.setText("Search POI");
+
+        Find_Button.setText("FIND");
+
+        javax.swing.GroupLayout SearchPOI_PanelLayout = new javax.swing.GroupLayout(SearchPOI_Panel);
+        SearchPOI_Panel.setLayout(SearchPOI_PanelLayout);
+        SearchPOI_PanelLayout.setHorizontalGroup(
+                SearchPOI_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(SearchPOI_PanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(Search_POI_label, javax.swing.GroupLayout.PREFERRED_SIZE, 71,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Search_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 167,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Find_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 75,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+        SearchPOI_PanelLayout.setVerticalGroup(
+                SearchPOI_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(SearchPOI_PanelLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addGroup(SearchPOI_PanelLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(Search_POI_label)
+                                        .addComponent(Search_TextField, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Find_Button))
+                                .addContainerGap(19, Short.MAX_VALUE)));
+
+        Layer_Panel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        Entry_Points_CheckBox.setText("Entry Points");
+        Entry_Points_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Layer_ButtonActionPerformed(evt);
+            }
+        });
+
+        Exit_Points_CheckBox.setText("Exit Points");
+        Exit_Points_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Layer_ButtonActionPerformed(evt);
+            }
+        });
+
+        Stairwells_CheckBox.setText("Stairwells");
+        Stairwells_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Layer_ButtonActionPerformed(evt);
+            }
+        });
+
+        Elevators_CheckBox.setText("Elevators");
+        Elevators_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Layer_ButtonActionPerformed(evt);
+            }
+        });
+
+        Layers_Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Layers_Label.setText("Layers");
+
+        UCPOI_CheckBox.setText("User Created POIs");
+        UCPOI_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Layer_ButtonActionPerformed(evt);
+            }
+        });
+
+        Classrooms_CheckBox.setText("Classrooms");
+        Classrooms_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Layer_ButtonActionPerformed(evt);
+            }
+        });
+
+        Labs_CheckBox.setText("Labs");
+        Labs_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Layer_ButtonActionPerformed(evt);
+            }
+        });
+
+        CSpaces_CheckBox.setText("Collaborative Spaces");
+        CSpaces_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Layer_ButtonActionPerformed(evt);
+            }
+        });
+
+        FavPOI_CheckBox.setText("Favourite POIs");
+        FavPOI_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Layer_ButtonActionPerformed(evt);
+            }
+        });
+
+        Restaurants_CheckBox.setText("Restaurants");
+        Restaurants_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Layer_ButtonActionPerformed(evt);
+            }
+        });
+
+        Layer_Button.setText("View Layers");
+        Layer_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Layer_ButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Layer_PanelLayout = new javax.swing.GroupLayout(Layer_Panel);
+        Layer_Panel.setLayout(Layer_PanelLayout);
+        Layer_PanelLayout.setHorizontalGroup(
+            Layer_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Layer_PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Layer_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Layer_PanelLayout.createSequentialGroup()
+                        .addGroup(Layer_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Exit_Points_CheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Layer_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(Stairwells_CheckBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Elevators_CheckBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(Entry_Points_CheckBox))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(Layer_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FavPOI_CheckBox)
+                            .addGroup(Layer_PanelLayout.createSequentialGroup()
+                                .addGroup(Layer_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Classrooms_CheckBox)
+                                    .addComponent(Labs_CheckBox)
+                                    .addComponent(UCPOI_CheckBox))
+                                .addGroup(Layer_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Layer_PanelLayout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addGroup(Layer_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(CSpaces_CheckBox)
+                                            .addComponent(Restaurants_CheckBox)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Layer_PanelLayout.createSequentialGroup()
+                                        .addGap(22, 22, 22)
+                                        .addComponent(Layer_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addComponent(Layers_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
+        );
+
+        Layer_PanelLayout.setVerticalGroup(
+                Layer_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Layer_PanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(Layers_Label)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(Layer_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(Layer_PanelLayout.createSequentialGroup()
+                            .addGroup(Layer_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(Layer_PanelLayout.createSequentialGroup()
+                                    .addComponent(Entry_Points_CheckBox)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(Exit_Points_CheckBox))
+                                .addGroup(Layer_PanelLayout.createSequentialGroup()
+                                    .addComponent(Restaurants_CheckBox)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(CSpaces_CheckBox)))
+                            .addGroup(Layer_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(Layer_PanelLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(Stairwells_CheckBox)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(Elevators_CheckBox))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Layer_PanelLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Layer_Button))))
+                        .addGroup(Layer_PanelLayout.createSequentialGroup()
+                            .addComponent(Classrooms_CheckBox)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Labs_CheckBox)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(FavPOI_CheckBox)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(UCPOI_CheckBox)))
+                    .addContainerGap(21, Short.MAX_VALUE))
+            );
+
+            POI_Discovery_Panel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+            POI_List.setModel(new javax.swing.AbstractListModel<String>() {
+                String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Classroom 110", "Item 7" };
+                public int getSize() { return strings.length; }
+                public String getElementAt(int i) { return strings[i]; }
+            });
+            jScrollPane2.setViewportView(POI_List);
+    
+            Select_Category_Label.setText("Select Category :");
+    
+            POI_Discovery_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entry Points", "Exit Points", "Stairwells", "Elevators", "Classrooms", "Restaurants", "Labs", "User Created POIs", "Favourite POIs" }));
+    
+            POI_Discovery_Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+            POI_Discovery_Label.setText("POI Discovery");
+    
+            Discovery_Button.setText("Apply Category");
+    
+            javax.swing.GroupLayout POI_Discovery_PanelLayout = new javax.swing.GroupLayout(POI_Discovery_Panel);
+            POI_Discovery_Panel.setLayout(POI_Discovery_PanelLayout);
+            POI_Discovery_PanelLayout.setHorizontalGroup(
+                POI_Discovery_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(POI_Discovery_PanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(POI_Discovery_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(POI_Discovery_Label)
+                        .addGroup(POI_Discovery_PanelLayout.createSequentialGroup()
+                            .addComponent(Select_Category_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(POI_Discovery_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(POI_Discovery_PanelLayout.createSequentialGroup()
+                                    .addComponent(POI_Discovery_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(Discovery_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+            POI_Discovery_PanelLayout.setVerticalGroup(
+                POI_Discovery_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, POI_Discovery_PanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(POI_Discovery_Label)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(POI_Discovery_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Select_Category_Label)
+                        .addComponent(POI_Discovery_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Discovery_Button))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(12, Short.MAX_VALUE))
+            );
+            
+        UserCreated_POI_Panel
+                .setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        Create_POI_button.setText("Create POI");
+        Create_POI_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Create_POI_buttonActionPerformed(evt);
+            }
+        });
+
+        Edit_Layer_button.setText("Edit Layer");
+
+        UC_POI_Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        UC_POI_Label.setText("User Created POI");
+
+        javax.swing.GroupLayout UserCreated_POI_PanelLayout = new javax.swing.GroupLayout(UserCreated_POI_Panel);
+        UserCreated_POI_Panel.setLayout(UserCreated_POI_PanelLayout);
+        UserCreated_POI_PanelLayout.setHorizontalGroup(
+                UserCreated_POI_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(UserCreated_POI_PanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(UC_POI_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Create_POI_button, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Edit_Layer_button, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+        UserCreated_POI_PanelLayout.setVerticalGroup(
+                UserCreated_POI_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(UserCreated_POI_PanelLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(UserCreated_POI_PanelLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(UC_POI_Label)
+                                        .addComponent(Create_POI_button)
+                                        .addComponent(Edit_Layer_button))
+                                .addContainerGap(15, Short.MAX_VALUE)));
+
+        jMenu1.setText("File");
+
+        jMenuItem1.setText("Exit");
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("About");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Help");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Weather");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jMenu4MouseClicked(evt);
+                    }
+        });
+
+
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1MouseClicked(evt);
+            }
+        });
+        
+
+        //jMenu4.setText("View");
+
+        //jCheckBoxMenuItem1.setSelected(true);
+        //jCheckBoxMenuItem1.setText("Weather");
+       // jMenu4.add(jCheckBoxMenuItem1);
+
+        jMenuBar1.add(jMenu4);
+
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(UserCreated_POI_Panel, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Layer_Panel, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(POI_Discovery_Panel, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(SearchPOI_Panel, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(BuildingSearch_Panel, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80,
+                                        Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap()));
+        layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(15, 15, 15)
+                                                .addComponent(BuildingSearch_Panel,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(SearchPOI_Panel, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(Layer_Panel, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(UserCreated_POI_Panel,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(POI_Discovery_Panel,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(860, Short.MAX_VALUE)));
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    // Delete if designer is messed up
+    private void Event_ButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        Img.removeAll();
+
+
+        Building bld = model.getBuilding(Building_ComboBox.getSelectedItem().toString());
+        FloorMap floormap = bld.getFloorMap(Floor_ComboBox.getSelectedItem().toString());
+        String floorMapPath = floormap.getFilePath();
+        ImageIcon map = new ImageIcon(floorMapPath);
+        Image map_image = map.getImage();
+        Image resized_map = map_image.getScaledInstance(2057, 1320, java.awt.Image.SCALE_SMOOTH);
+        map = new ImageIcon(resized_map);
+        Img.setIcon(map);
+        jScrollPane1.setViewportView(Img);
+
+        ArrayList<Poi> poisAll = floormap.getPois();
+        for(Poi pois : poisAll){
+            PoiFront point = new PoiFront(pois, Building_ComboBox.getSelectedItem().toString(), Floor_ComboBox.getSelectedItem().toString(), model);
+            Img.add(point.getLabel());
+        }
+        Img.validate();
+        Img.repaint();
+    }
+
+    private void Building_ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Building_ComboBoxActionPerformed
+        try {
+            Building bld = model.getBuilding(Building_ComboBox.getSelectedItem().toString());
+            String[] floorMaps = bld.getFloorsArray();
+            Floor_ComboBox.removeAllItems();
+            for (String map : floorMaps) {
+                Floor_ComboBox.addItem(map);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    } // GEN-LAST:event_Building_ComboBoxActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jMenu2MouseClicked
+        File pdfFile = new File("data/images/About.pdf");
+        if (pdfFile.exists()) {
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    Desktop.getDesktop().open(pdfFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            System.out.println("The PDF file does not exist.");
+        }
+    }// GEN-LAST:event_jMenu2MouseClicked
+
+
+    //New Additions by Otis - Action events for create POi and placing it    
+    private void Create_POI_buttonActionPerformed(java.awt.event.ActionEvent evt) {
+        newPoi = true;
+    }
+
+    private void ImgMouseClicked(java.awt.event.MouseEvent evt) {
+        if (newPoi == true){
+            Building bld = model.getBuilding(Building_ComboBox.getSelectedItem().toString());
+            FloorMap floormap = bld.getFloorMap(Floor_ComboBox.getSelectedItem().toString());
+
+            int x = evt.getX();
+            int y = evt.getY();
+            System.out.println("X: " + x + " Y: " + y);
+            Position pos = new Position(x, y);
+            User user = model.getCurrUser();
+
+            Poi p = Poi.create(user.getUserid(), pos, 0, "roomNum", "", "type", "fax", "label", "", "filePath", null, null);
+            
+            p.addLayer("");
+            
+            if(user.getType().equals("admin")){
+                p.setClassification("admin");
+            } else {
+                p.setClassification("user");
+            }
+            PoiFront point = new PoiFront(p, Building_ComboBox.getSelectedItem().toString(), Floor_ComboBox.getSelectedItem().toString(), model);
+            //p.addFavCount();
+            Img.add(point.getLabel());
+            Img.validate();
+            Img.repaint();
+            floormap.addPoi(p);
+            model.serialize();
+            newPoi = false;
+        }
+    }
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jMenu3MouseClicked
+        File pdfFile = new File("data/images/Help.pdf");
+        if (pdfFile.exists()) {
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    Desktop.getDesktop().open(pdfFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            System.out.println("The PDF file does not exist.");
+        }
+
+    }// GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jMenu3MouseClicked
+           
+        //Weather_API weather_api = new Weather_API();
+        Weather_UI weather = new Weather_UI();
+        int responseCode = weather.get_ResponseCode();
+        
+        if (responseCode!=200) {
+            JFrame weather_unavailable = new Weather_Unavailable();
+            weather_unavailable.setVisible(true);
+            weather_unavailable.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        }
+        else {
+          JFrame weather_frame = new Weather_UI();
+          weather_frame.setVisible(true);
+          weather_frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        }
+        
+
+    }   
+    
+    private void jMenuItem1MouseClicked(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenu3MouseClicked
+        model.serialize();
+        System.exit(0);
+    }
+    
+    // Christine's work 
+    private ArrayList<String> selectedLayers = new ArrayList<>();
+
+    private void updateSelectedLayers(String layerName, boolean selected) {
+        if (selected) {
+            selectedLayers.add(layerName);
+        } else {
+            selectedLayers.remove(layerName);
+        }
+    }
+
+
+    // WIP
+    private void displaySelectedLayers() {
+        Building bld = model.getBuilding(Building_ComboBox.getSelectedItem().toString());
+        FloorMap floormap = bld.getFloorMap(Floor_ComboBox.getSelectedItem().toString());
+
+        for (String layerName : selectedLayers) {
+            switch (layerName) {
+                case "Entry Points":
+                    ArrayList<Poi> poisEntry = floormap.getPoiLayer("Entry");
+                    // display entry points
+                    
+                    System.out.println("HELLO");
+                    for (Poi pois : poisEntry) {
+                        // display pois
+                        PoiFront point = new PoiFront(pois, Building_ComboBox.getSelectedItem().toString(), Floor_ComboBox.getSelectedItem().toString(), model);
+                        Img.add(point.getLabel());
+                        System.out.println("tig bitty");
+                        }
+
+                        Img.validate();
+                        Img.repaint();
+                
+                    break;
+                case "Exit Points":
+                    ArrayList<Poi> poisExit = floormap.getPoiLayer("Exit");
+                    // display exit points
+                    for (Poi pois : poisExit) {
+                        // display pois
+                        PoiFront point = new PoiFront(pois, Building_ComboBox.getSelectedItem().toString(), Floor_ComboBox.getSelectedItem().toString(), model);
+                        Img.add(point.getLabel());
+
+                    }
+
+                    Img.validate();
+                    Img.repaint();
+
+                    break;
+                case "Stairwells":
+                    ArrayList<Poi> poisStairwells = floormap.getPoiLayer("Stairwells");
+                    // display stairwells
+                    for (Poi pois : poisStairwells) {
+                        // display pois
+                        PoiFront point = new PoiFront(pois, Building_ComboBox.getSelectedItem().toString(), Floor_ComboBox.getSelectedItem().toString(), model);
+                        Img.add(point.getLabel());
+                        
+                    }
+
+                    break;
+                case "Elevators":
+                    ArrayList<Poi> poisElevators = floormap.getPoiLayer("Elevators");
+                    // display elevators
+
+                    for (Poi pois : poisElevators) {
+                        // display pois
+                        PoiFront point = new PoiFront(pois, Building_ComboBox.getSelectedItem().toString(), Floor_ComboBox.getSelectedItem().toString(), model);
+                        Img.add(point.getLabel());
+                        
+                    }
+                    
+                    break;
+                case "UCPOI":
+                    ArrayList<Poi> poisUserCreated = floormap.getPoiLayer("UCPOI");
+                    // display user-created POIs
+                    System.out.println("UCPOIce");
+                    for (Poi pois : poisUserCreated) {
+                        // display pois
+                        PoiFront point = new PoiFront(pois, Building_ComboBox.getSelectedItem().toString(), Floor_ComboBox.getSelectedItem().toString(), model);
+                        Img.add(point.getLabel());
+                        
+                    }
+
+                    break;
+                case "Classrooms":
+                    ArrayList<Poi> poisClass = floormap.getPoiLayer("Classrooms");
+                    // display classrooms
+
+                    for (Poi pois : poisClass) {
+                        // display pois
+                        PoiFront point = new PoiFront(pois, Building_ComboBox.getSelectedItem().toString(), Floor_ComboBox.getSelectedItem().toString(), model);
+                        Img.add(point.getLabel());
+                        
+                    }
+
+                    break;
+                case "Labs":
+                    ArrayList<Poi> poisLabs = floormap.getPoiLayer("Labs");
+                    // display labs
+                    System.out.println("Labby");
+                    for (Poi pois : poisLabs) {
+                        // display pois
+                        PoiFront point = new PoiFront(pois, Building_ComboBox.getSelectedItem().toString(), Floor_ComboBox.getSelectedItem().toString(), model);
+                        Img.add(point.getLabel());
+                        
+                    }
+
+                    
+                    break;
+                case "CSpaces":
+                    ArrayList<Poi> poisCollab = floormap.getPoiLayer("CSpaces");
+                    // display collaborative spaces
+                    for (Poi pois : poisCollab) {
+                        // display pois
+                        PoiFront point = new PoiFront(pois, Building_ComboBox.getSelectedItem().toString(), Floor_ComboBox.getSelectedItem().toString(), model);
+                        Img.add(point.getLabel());
+                        
+                    }
+
+                    break;
+                case "FavPOI":
+                    ArrayList<Poi> poisFavs = floormap.getAllFavPois();
+                    // display favorite POIs
+                    for (Poi pois : poisFavs) {
+                        // display pois
+                        PoiFront point = new PoiFront(pois, Building_ComboBox.getSelectedItem().toString(), Floor_ComboBox.getSelectedItem().toString(), model);
+                        Img.add(point.getLabel());
+                        
+                    }
+
+                    break;
+                case "Restaurants":
+                    ArrayList<Poi> poisRestaurants = floormap.getPoiLayer("Restaurants");
+                    // display restaurants
+                    for (Poi pois : poisRestaurants) {
+                        // display pois
+                        PoiFront point = new PoiFront(pois, Building_ComboBox.getSelectedItem().toString(), Floor_ComboBox.getSelectedItem().toString(), model);
+                        Img.add(point.getLabel());
+                        
+                    }
+
+                    break;
+            }
+        }
+        repaint();
+    }
+
+    
+    //@Override
+    public void Layer_ButtonActionPerformed(java.awt.event.ActionEvent evt) {
+
+        if (evt.getSource() == Entry_Points_CheckBox) {
+            updateSelectedLayers("Entry Points", Entry_Points_CheckBox.isSelected());
+        } else if (evt.getSource() == Exit_Points_CheckBox) {
+            updateSelectedLayers("Exit Points", Exit_Points_CheckBox.isSelected());
+        } else if (evt.getSource() == Stairwells_CheckBox) {
+            updateSelectedLayers("Stairwells", Stairwells_CheckBox.isSelected());
+        } else if (evt.getSource() == Elevators_CheckBox) {
+            updateSelectedLayers("Elevators", Elevators_CheckBox.isSelected());
+        } else if (evt.getSource() == Labs_CheckBox) {
+            updateSelectedLayers("Labs", Labs_CheckBox.isSelected());
+        } else if (evt.getSource() == CSpaces_CheckBox) {
+            updateSelectedLayers("CSpaces", CSpaces_CheckBox.isSelected());
+        } else if (evt.getSource() == Classrooms_CheckBox) {
+            updateSelectedLayers("Classrooms", Classrooms_CheckBox.isSelected());
+        } else if (evt.getSource() == FavPOI_CheckBox) {
+            updateSelectedLayers("FavPOI", FavPOI_CheckBox.isSelected());
+        } else if (evt.getSource() == UCPOI_CheckBox) {
+            updateSelectedLayers("UCPOI", UCPOI_CheckBox.isSelected());
+        } else if (evt.getSource() == Restaurants_CheckBox) {
+            updateSelectedLayers("Restaurants", Restaurants_CheckBox.isSelected());
+        } 
+        
+        if (evt.getSource() == Layer_Button) {
+            //Img.removeAll();
+            displaySelectedLayers();
+        }
+    }
+
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel.
+         * For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(User_Interface.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(User_Interface.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(User_Interface.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(User_Interface.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
+        }
+        // </editor-fold>
+        // new User_Interface();
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new User_Interface().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BuildingSearch_Panel;
+    private javax.swing.JComboBox<String> Building_ComboBox;
+    private javax.swing.JLabel Building_Label;
+    private javax.swing.JCheckBox CSpaces_CheckBox;
+    private javax.swing.JCheckBox Classrooms_CheckBox;
+    private javax.swing.JButton Create_POI_button;
+    private javax.swing.JButton Edit_Layer_button;
+    private javax.swing.JCheckBox Elevators_CheckBox;
+    private javax.swing.JButton Enter_Button;
+    private javax.swing.JCheckBox Entry_Points_CheckBox;
+    private javax.swing.JCheckBox Exit_Points_CheckBox;
+    private javax.swing.JCheckBox FavPOI_CheckBox;
+    private javax.swing.JButton Layer_Button;
+    private javax.swing.JButton Find_Button;
+    private javax.swing.JComboBox<String> Floor_ComboBox;
+    private javax.swing.JLabel Floor_Label;
+    private javax.swing.JLabel Img;
+    private javax.swing.JCheckBox Labs_CheckBox;
+    private javax.swing.JPanel Layer_Panel;
+    private javax.swing.JLabel Layers_Label;
+    private javax.swing.JComboBox<String> POI_Discovery_ComboBox;
+    private javax.swing.JLabel POI_Discovery_Label;
+    private javax.swing.JButton Discovery_Button;
+    private javax.swing.JPanel POI_Discovery_Panel;
+    private javax.swing.JList<String> POI_List;
+    private javax.swing.JCheckBox Restaurants_CheckBox;
+    private javax.swing.JPanel SearchPOI_Panel;
+    private javax.swing.JLabel Search_POI_label;
+    private javax.swing.JTextField Search_TextField;
+    private javax.swing.JLabel Select_Category_Label;
+    private javax.swing.JLabel Select_Map_label;
+    private javax.swing.JCheckBox Stairwells_CheckBox;
+    private javax.swing.JCheckBox UCPOI_CheckBox;
+    private javax.swing.JLabel UC_POI_Label;
+    private javax.swing.JPanel UserCreated_POI_Panel;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    // End of variables declaration//GEN-END:variables
+}
